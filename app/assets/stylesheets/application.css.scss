@@ -1,0 +1,68 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+@import "font-awesome";
+
+
+input.ais-SearchBox-input {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #000;
+  border-top: 3px solid #8bc3e6;
+  border-bottom: 1px solid #494848;
+  border-left: 1px solid #494848;
+  border-right: 1px solid #494848;
+  color: #ccc;
+  padding: 1em;
+}
+
+div.ais-Stats {
+  color: #8bc3e6;
+  margin-bottom: 0.3em;
+}
+
+div.hit-description {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+
+li.ais-Hits-item {
+  margin-bottom: 1em;
+}
+
+.ais-Pagination-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #b2e2ff;
+}
+
+.ais-Pagination-item {
+  margin-right: 0.5em;
+  font-size: 1em;
+}
+
+.ais-Pagination-item--selected {
+  font-weight: bold;
+  text-decoration: underline;
+}

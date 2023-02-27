@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SearQ</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="author" content="Davide Santangelo">
+    <meta name="description" content="searq - RSS search engine - a search engine that allows you to find RSS feeds easily">
+    <meta name="keywords" content="rails api web RSS">
+    <meta property="og:url" content="https://searq.org">
+    <meta property="og:image" content="https://searq.org/logo.png">
+    <meta property="og:image:width" content="300">
+    <meta property="og:image:height" content="300">
+    <meta property="og:image:alt" content="datorss">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="searq.org - the best RSS search experience you can find">
+    <meta property="og:title" content="searq.org - the best RSS search experience you can find">
+    <meta property="og:description" content="searq.org - RSS search engine - a search engine that allows you to find RSS feeds easily">
+        
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= favicon_link_tag "favicon.png", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+  <body class="font-sans text-white bg-black leading-normal tracking-normal">
+    <main class="mx-auto">
+      <%= yield %>
+    </main>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/@meilisearch/instant-meilisearch/dist/instant-meilisearch.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4"></script>
+  <script>
+    const search = instantsearch({
+      indexName: "Item",
+      searchClient: instantMeiliSearch(
+        "http://localhost:7700",
+        "36knp7eV10xkiMwdefKh6_MEYWJ4OG8RAkfxehKjO0Q"
+      )
+      });
+      search.addWidgets([
+        instantsearch.widgets.searchBox({
+          container: "#searchbox",
+          placeholder: "search over RSS feeds",
+          autofocus: true,
+          showLoadingIndicator: true,
+          showReset: false,
+          showSubmit: false
+        }),
+        instantsearch.widgets.configure({ hitsPerPage: 15 }),
+        instantsearch.widgets.hits({
+          container: "#hits",
+          templates: {
+          item: `
+            <div class="max-w-3xl shadow-md">
+              <a class="hit-name font-semibold hover:underline" href="{{url}}">
+                {{#helpers.highlight}}{ "attribute": "title" }{{/helpers.highlight}}
+              </a>
+              <div class="hit-description text-sm text-gray-300">
+                {{#helpers.highlight}}{ "attribute": "text" }{{/helpers.highlight}}
+              </div>
+              <div class="hit-categories text-sm text-sky-300">
+                {{categories}}
+              </div>
+
+            </div>
+          `
+          },
+        })
+      ]);
+
+   
+      search.addWidget(
+        instantsearch.widgets.stats({
+          container: '#stats',
+        })
+      );
+
+      search.addWidget(
+        instantsearch.widgets.pagination({
+          container: '#pagination',
+        })
+      );
+      
+      search.start();
+  </script>
+</html>
