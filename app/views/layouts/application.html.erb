@@ -15,8 +15,6 @@
     <meta property="og:site_name" content="searq.org - the best RSS search experience you can find">
     <meta property="og:title" content="searq.org - the best RSS search experience you can find">
     <meta property="og:description" content="searq.org - RSS search engine - a search engine that allows you to find RSS feeds easily">
-        
-
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
@@ -24,13 +22,14 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-  <body class="font-sans text-white bg-black leading-normal tracking-normal">
+  <body class="font-sans text-white leading-normal tracking-normal bg-zinc-900">
     <main class="mx-auto">
       <%= yield %>
     </main>
   </body>
-  <script src="https://cdn.jsdelivr.net/npm/@meilisearch/instant-meilisearch/dist/instant-meilisearch.umd.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4"></script>
+  <script src="//cdn.jsdelivr.net/npm/@meilisearch/instant-meilisearch/dist/instant-meilisearch.umd.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/instantsearch.js@4"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
   <script>
     const search = instantsearch({
       indexName: "Item",
@@ -53,36 +52,53 @@
           container: "#hits",
           templates: {
           item: `
-            <div class="max-w-3xl shadow-md">
-              <a class="hit-name font-semibold hover:underline" href="{{url}}">
-                {{#helpers.highlight}}{ "attribute": "title" }{{/helpers.highlight}}
-              </a>
-              <div class="hit-description text-sm text-gray-300">
-                {{#helpers.highlight}}{ "attribute": "text" }{{/helpers.highlight}}
+            <div class="shadow mb-6">
+              <div class="hit-url mb-1">
+                <a href="{{url}}" class="text-base text-gray-500">{{url}}</a>
               </div>
-              <div class="hit-categories text-sm text-sky-300">
+              <div class="hit-name">
+                <a class="bg-indigo-600 text-white py-0.5 px-2 rounded font-semibold hover:underline" href="{{feed_url}}">{{feed_title}}</a> <a href="{{url}}" class="underline hover:text-sky-400"> {{#helpers.highlight}}{ "attribute": "title" }{{/helpers.highlight}}</a>
+              </div>
+              <div class="hit-description text-base text-gray-300 max-w-4xl">
+                <span class="text-gray-500 text-sm mr-1">{{published_at}}</span> {{#helpers.highlight}}{ "attribute": "text" }{{/helpers.highlight}}
+              </div>
+              <div class="hit-categories text-base text-sky-700">
                 {{categories}}
               </div>
-
             </div>
           `
           },
+          transformItems: items => {
+            return items.map(item => {
+              return {
+                ...item,
+                published_at: moment(item.published_at).fromNow(),
+                categories: item.categories.join(" ")
+              };
+            });
+          }
         })
       ]);
-
-   
+    
+    
       search.addWidget(
         instantsearch.widgets.stats({
           container: '#stats',
         })
       );
-
+    
       search.addWidget(
         instantsearch.widgets.pagination({
           container: '#pagination',
+          templates: {
+            first: '<<',
+            last: '>>',
+            previous: '<',
+            next: '>',
+          },
         })
       );
-      
+    
       search.start();
   </script>
 </html>

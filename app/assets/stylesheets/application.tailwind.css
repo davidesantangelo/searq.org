@@ -11,3 +11,15 @@
 }
 
 */
+
+.ais-SearchBox-input {
+  @apply border border-zinc-700 bg-gray-200 text-gray-800 w-full box-border p-3 rounded-sm;
+}
+
+.ais-Pagination-item {
+  @apply border border-zinc-700 rounded px-3 py-1 mr-1;  
+}
+
+.ais-Pagination-item--selected {
+  @apply underline font-bold text-indigo-500;
+}

@@ -19,8 +19,22 @@ class Item < ApplicationRecord
     filterable_attributes %i[feed_id categories published_at published_at_timestamp]
     sortable_attributes %i[published_at published_at_timestamp title]
 
-    attribute :feed do
+    ranking_rules [
+      'proximity',
+      'typo',
+      'words',
+      'attribute',
+      'sort',
+      'exactness',
+      'publication_year:desc'
+    ]
+
+    attribute :feed_title do
       feed.title
+    end
+
+    attribute :feed_url do
+      feed.url
     end
   end
 

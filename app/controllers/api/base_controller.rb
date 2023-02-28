@@ -2,6 +2,7 @@
 
 module Api
   class NotAuthenticated < StandardError; end
+
   class BaseController < ActionController::Base
     include ::ActionController::Cookies
     include ActionController::HttpAuthentication::Token::ControllerMethods

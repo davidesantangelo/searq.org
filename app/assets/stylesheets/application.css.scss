@@ -18,33 +18,11 @@
 @import "font-awesome";
 
 
-input.ais-SearchBox-input {
-  width: 100%;
-  box-sizing: border-box;
-  background-color: #000;
-  border-top: 3px solid #8bc3e6;
-  border-bottom: 1px solid #494848;
-  border-left: 1px solid #494848;
-  border-right: 1px solid #494848;
-  color: #ccc;
-  padding: 1em;
-}
-
-div.ais-Stats {
-  color: #8bc3e6;
-  margin-bottom: 0.3em;
-}
-
 div.hit-description {
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-}
-
-
-li.ais-Hits-item {
-  margin-bottom: 1em;
+  -webkit-line-clamp: 2;
 }
 
 .ais-Pagination-list {
@@ -55,14 +33,4 @@ li.ais-Hits-item {
   -ms-flex-align: center;
   align-items: center;
   color: #b2e2ff;
-}
-
-.ais-Pagination-item {
-  margin-right: 0.5em;
-  font-size: 1em;
-}
-
-.ais-Pagination-item--selected {
-  font-weight: bold;
-  text-decoration: underline;
 }

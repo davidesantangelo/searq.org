@@ -23,7 +23,7 @@ module ExceptionHandler
     rescue_from ActionController::ParameterMissing do |e|
       json_error_response('ParameterMissing', e.message, :unprocessable_entity)
     end
-    
+
     rescue_from ActionController::RoutingError do |e|
       json_error_response('RoutingError', e.message, :not_found)
     end
@@ -31,17 +31,16 @@ module ExceptionHandler
     # MeiliSearch
 
     rescue_from MeiliSearch::CommunicationError do |e|
-      json_error_response('CommunicationError', 'An error occurred while trying to communicate with Search API', :internal_server_error)
-                          
+      json_error_response('CommunicationError', e.message, :internal_server_error)
     end
 
     rescue_from MeiliSearch::ApiError do |e|
-      json_error_response('ApiError', 'An error occurred while trying to communicate with Search API', :internal_server_error)
+      json_error_response('ApiError', e.message, :internal_server_error)
     end
 
     rescue_from MeiliSearch::TimeoutError do |e|
       json_error_response('TimeoutError',
-                          'An error occurred while trying to communicate with Search API. The request timed out',
+                          e.message,
                           :internal_server_error)
     end
 
