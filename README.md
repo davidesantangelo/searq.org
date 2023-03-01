@@ -1,3 +1,5 @@
+![Made With Ruby](https://forthebadge.com/images/badges/made-with-ruby.svg) ![Built With Love](https://forthebadge.com/images/badges/built-with-love.svg)
+
 # SEARQ
 
 API search engine based on RSS feeds
