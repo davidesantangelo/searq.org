@@ -63,12 +63,12 @@ SearQ uses [Meilisearch](https://www.meilisearch.com) as search engine. Meilisea
 - **Tokenization in English**, Chinese, and all languages that use space as a word divider.
 - **Return the whole document:** The entire document is returned upon search.
 - **Highly customizable search and indexing:**
-    - - **Custom ranking:** Customize the relevancy of the search engine and the ranking of the search results.
-    - - **Stop words:** Ignore common non-relevant words like of or the.
-    - - **Highlighting:** Highlighted search results in documents
-    - - **Synonyms:** define synonyms for a better search experience.
-- **RESTful API
-- **Search preview: allows you to test your search settings without implementing a front-end
+    - **Custom ranking:** Customize the relevancy of the search engine and the ranking of the search results.
+    - **Stop words:** Ignore common non-relevant words like of or the.
+    - **Highlighting:** Highlighted search results in documents
+    - **Synonyms:** define synonyms for a better search experience.
+- **RESTful API**
+- **Search preview:** allows you to test your search settings without implementing a front-end
 
 ## Built With
 
