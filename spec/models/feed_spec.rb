@@ -22,9 +22,9 @@ RSpec.describe Feed, type: :model do
       end
     end
 
-    describe '#fetch!' do
+    describe '#synchronize!' do
       it 'creates a new task' do
-        expect { feed.fetch! }.to change { Task.count }.by(1)
+        expect { feed.synchronize! }.to change { Task.count }.by(1)
       end
     end
   end

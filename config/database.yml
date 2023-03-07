@@ -83,4 +83,5 @@ production:
   <<: *default
   database: searq_production
   username: searq
-  password: <%= ENV["SEARQ_DATABASE_PASSWORD"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
