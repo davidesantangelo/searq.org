@@ -45,12 +45,6 @@ GET http://searq.org/api/search?q={query}
 }
 ```
 
-## Docs
-
-All API documentation is in the Wiki section. Feel free to make it better, of course.
-
-<https://github.com/searq/searq.org/wiki>
-
 ## Mielesearch
 
 SearQ uses [Meilisearch](https://www.meilisearch.com) as search engine. Meilisearch is an open-source, lightning-fast, and hyper-relevant search engine that fits effortlessly into your apps. It is written in Rust and uses LMDB as a storage engine. It is a standalone binary that can be run on any platform. It is also available as a Docker image.

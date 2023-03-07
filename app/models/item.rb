@@ -5,6 +5,7 @@ class Item < ApplicationRecord
   include MeiliSearch::Rails
   extend Pagy::Meilisearch
 
+  # associations
   belongs_to :feed, counter_cache: true
 
   # validations
@@ -12,6 +13,10 @@ class Item < ApplicationRecord
   validates :url, presence: true, uniqueness: true
   validates :external_id, presence: true, uniqueness: true
 
+  # scopes  
+  scope :latest, -> { order(published_at: :desc) } 
+
+  # search
   meilisearch do
     attribute :title, :text, :url, :categories, :published_at, :published_at_timestamp, :feed_id
     searchable_attributes %i[title text url categories published_at feed_id]

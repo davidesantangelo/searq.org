@@ -3,10 +3,10 @@
 FactoryBot.define do
   factory :feed do
     id { SecureRandom.uuid }
-    title { 'feed RSS title' }
-    description { 'feed RSS description' }
-    url { 'http://url/rss2.0.xml' }
-    items_count { 0 }
+    title { Faker::Book.title }
+    description { Faker::Lorem.paragraph }
+    url { Faker::Internet.url }
+    items_count { rand(1..10) }
   end
 
   trait :with_items do

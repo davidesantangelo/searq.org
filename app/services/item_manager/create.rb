@@ -16,9 +16,11 @@ module ItemManager
     private
 
     def create_item
+      return nil if Item.exists?(url: entry.url)
+
       item = Parse.new(feed:, entry:).call
 
-      return nil unless item
+      return nil if item.nil?
 
       item.save!
     end

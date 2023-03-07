@@ -4,6 +4,7 @@ class Feed < ApplicationRecord
   include MeiliSearch::Rails
   extend Pagy::Meilisearch
 
+  # associations
   has_many :items, dependent: :destroy
   has_many :tasks, dependent: :destroy
 
@@ -12,6 +13,10 @@ class Feed < ApplicationRecord
   validates :title, presence: true
   validates_associated :items
 
+  # scopes
+  scope :to_synchronize, -> { where('synchronized_at < ?', 24.hours.ago).or(where(synchronized_at: nil)) }
+  
+  # search
   meilisearch do
     attribute :title, :description, :language, :url
   end
@@ -24,7 +29,7 @@ class Feed < ApplicationRecord
     task
   end
 
-  def fetch!
+  def synchronize!
     task = tasks.enqueued.create!(task_type: :feed_update, enqueued_at: Time.current)
 
     FeedJob::Update.perform_async(task.id)

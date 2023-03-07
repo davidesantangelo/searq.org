@@ -7,6 +7,10 @@ class Task < ApplicationRecord
   # validations
   validates :feed, presence: true
 
+  # scopes
+  scope :newest, -> { order(created_at: :desc) }
+  scope :oldest, -> { order(created_at: :asc) }
+
   # enums
   enum status: {
     enqueued: 'enqueued',

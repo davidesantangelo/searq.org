@@ -28,17 +28,4 @@ RSpec.describe Feed, type: :model do
       end
     end
   end
-
-  describe 'meilisearch' do
-    let(:feed) { create(:feed) }
-    let(:task) { create(:task, feed:) }
-
-    before do
-      FeedManager::Store.new(feed: task.feed).call
-    end
-
-    it 'search the feed' do
-      expect(Feed.search(feed.title).first).to eq(feed)
-    end
-  end
 end

@@ -36,8 +36,6 @@ module ItemManager
         external_id: entry.entry_id,
         categories:,
         published_at:,
-        created_at: Time.current,
-        updated_at: Time.current
       }
 
       item = ::Item.new(attrs)

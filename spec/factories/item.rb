@@ -4,8 +4,8 @@ FactoryBot.define do
   factory :item do
     id { SecureRandom.uuid }
     title { 'item title' }
-    body { 'item body' }
-    url { 'http://url/item' }
+    body { '<p>item body</p>' }
+    url { Faker::Internet.url }
     external_id { SecureRandom.uuid }
     published_at { Time.now }
     feed

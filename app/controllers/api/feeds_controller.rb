@@ -20,7 +20,7 @@ module Api
     end
 
     def update
-      @task = @feed.fetch!
+      @task = @feed.synchronize!
 
       json_response_with_serializer(@task)
     end

@@ -67,7 +67,8 @@ CREATE TABLE public.feeds (
     items_count integer DEFAULT 0,
     metadata jsonb DEFAULT '{}'::jsonb,
     created_at timestamp(6) without time zone NOT NULL,
-    updated_at timestamp(6) without time zone NOT NULL
+    updated_at timestamp(6) without time zone NOT NULL,
+    synchronized_at timestamp(6) without time zone
 );
 
 
@@ -191,6 +192,13 @@ CREATE INDEX index_feeds_on_language ON public.feeds USING btree (language);
 --
 
 CREATE INDEX index_feeds_on_metadata ON public.feeds USING gin (metadata);
+
+
+--
+-- Name: index_feeds_on_synchronized_at; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_feeds_on_synchronized_at ON public.feeds USING btree (synchronized_at);
 
 
 --
@@ -339,6 +347,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20230218094151'),
 ('20230218094346'),
 ('20230219174535'),
-('20230222105024');
+('20230222105024'),
+('20230307080723');
 
 
