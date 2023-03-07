@@ -10,7 +10,7 @@ The engine works by aggregating information from multiple RSS feeds, indexing th
 
 By utilizing RSS feeds, the search results are often more targeted and accurate, making it easier for users to find the information they are looking for. Additionally, because the information is being pulled from a variety of sources, users may also be exposed to a wider range of perspectives and opinions on a given topic.
 
-```bash
+```sh
 GET http://searq.org/api/search?q={query}
 ```
 
@@ -74,7 +74,7 @@ curl -L https://install.meilisearch.com | sh
 ./meilisearch
 ```
 
-You have the option to install Meilisearch locally or deploy it over a cloud service. Learn more about the other installation options in our [installation guide](https://docs.meilisearch.com/learn/getting_started/installation.html#local-installation)
+You have the option to install Meilisearch locally or deploy it over a cloud service. Learn more about the other installation options on [installation guide](https://docs.meilisearch.com/learn/getting_started/installation.html#local-installation)
 
 #
 
