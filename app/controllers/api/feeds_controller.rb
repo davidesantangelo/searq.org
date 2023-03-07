@@ -3,9 +3,9 @@
 module Api
   class FeedsController < BaseController
     before_action :set_feed, only: %i[show tasks update]
+    before_action :check_create_params, only: :create
     before_action :create_feed, only: :create
     before_action :check_params, only: :search
-    before_action :check_create_params, only: :create
 
     def index
       @pagy, @feeds = pagy(Feed.all)
