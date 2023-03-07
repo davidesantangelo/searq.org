@@ -64,6 +64,20 @@ SearQ uses [Meilisearch](https://www.meilisearch.com) as search engine. Meilisea
 - **RESTful API**
 - **Search preview:** allows you to test your search settings without implementing a front-end
 
+## Installation
+
+```sh
+# Install Meilisearch
+curl -L https://install.meilisearch.com | sh
+
+# Launch Meilisearch
+./meilisearch
+```
+
+You have the option to install Meilisearch locally or deploy it over a cloud service. Learn more about the other installation options in our [installation guide](https://docs.meilisearch.com/learn/getting_started/installation.html#local-installation)
+
+#
+
 ## Built With
 
 - [Ruby on Rails](https://github.com/rails/rails) &mdash; Our back end API is a Rails app. It responds to requests RESTfully in JSON.
