@@ -45,7 +45,3 @@ Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
 require 'capistrano/rails'
 require 'capistrano/passenger'
 require 'capistrano/rbenv'
-require 'capistrano/sidekiq'
-
-install_plugin Capistrano::Sidekiq
-install_plugin Capistrano::Sidekiq::Systemd
