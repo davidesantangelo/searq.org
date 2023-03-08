@@ -111,6 +111,12 @@ Sincerely, Davide
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/H2H1F15SD)
 
+## TOKEN that never expires!
+
+The tokens that can be created through the endpoint are all valid for 24 hours. If you want a token that has no expiration date, you can buy it on Gumroad.
+
+https://davidesantangelo.gumroad.com/l/jwtxq
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at <https://github.com/searq/searq.org>. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
