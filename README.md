@@ -64,7 +64,7 @@ SearQ uses [Meilisearch](https://www.meilisearch.com) as search engine. Meilisea
 - **RESTful API**
 - **Search preview:** allows you to test your search settings without implementing a front-end
 
-## Installation
+### Installation
 
 ```sh
 # Install Meilisearch
