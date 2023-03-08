@@ -11,7 +11,7 @@ module FeedJob
       feed = task.feed
 
       Timeout.timeout(5.minutes.in_seconds) do
-        FeedManager::Update.new(feed: feed).call
+        FeedManager::Update.new(feed:).call
       end
 
       feed.synchronized_at = Time.current

@@ -1,9 +1,9 @@
+# frozen_string_literal: true
+
 namespace :feed do
   desc 'fetch and update items from all feeds'
   task synchronize: :environment do
-    Feed.to_synchronize.find_each do |feed|
-      feed.synchronize!
-    end
+    Feed.to_synchronize.find_each(&:synchronize!)
   end
 
   desc 'fetch and update items from a specific feed'
@@ -14,9 +14,7 @@ namespace :feed do
 
   desc 'fetch and store items from all feeds'
   task store: :environment do
-    Feed.find_each do |feed|
-      feed.store!
-    end
+    Feed.find_each(&:store!)
   end
 
   desc 'fetch and store items from a specific feed'

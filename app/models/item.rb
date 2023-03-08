@@ -13,8 +13,8 @@ class Item < ApplicationRecord
   validates :url, presence: true, uniqueness: true
   validates :external_id, presence: true, uniqueness: true
 
-  # scopes  
-  scope :latest, -> { order(published_at: :desc) } 
+  # scopes
+  scope :latest, -> { order(published_at: :desc) }
 
   # search
   meilisearch do

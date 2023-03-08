@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Api::FeedsController, type: :controller do
@@ -30,7 +32,7 @@ RSpec.describe Api::FeedsController, type: :controller do
 
   describe 'POST #create' do
     before do
-      post :create, params: { url: "https://rubyonrails.org/feed.xml" }
+      post :create, params: { url: 'https://rubyonrails.org/feed.xml' }
     end
 
     it 'returns http success' do

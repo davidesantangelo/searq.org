@@ -35,7 +35,7 @@ module ItemManager
         url: entry.url,
         external_id: entry.entry_id,
         categories:,
-        published_at:,
+        published_at:
       }
 
       item = ::Item.new(attrs)

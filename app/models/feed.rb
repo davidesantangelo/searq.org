@@ -15,7 +15,7 @@ class Feed < ApplicationRecord
 
   # scopes
   scope :to_synchronize, -> { where('synchronized_at < ?', 12.hours.ago).or(where(synchronized_at: nil)) }
-  
+
   # search
   meilisearch do
     attribute :title, :description, :language, :url

@@ -31,11 +31,11 @@ feeds = [
   'https://feeds.feedburner.com/techcrunch/enterprise',
   'https://feeds.feedburner.com/techcrunch/transportation',
   'https://feeds.feedburner.com/techcrunch/europe',
-  'https://feeds.feedburner.com/techcrunch/asia',
+  'https://feeds.feedburner.com/techcrunch/asia'
 ]
 
 feeds.each do |url|
-  FeedManager::Create.new(url: url).call
+  FeedManager::Create.new(url:).call
 end
 
 Feed.all.each(&:store!)
