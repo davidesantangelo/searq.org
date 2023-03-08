@@ -89,7 +89,7 @@ You have the option to install Meilisearch locally or deploy it over a cloud ser
 - [JSON:API Serialization](https://github.com/jsonapi-serializer/jsonapi-serializer) &mdash; A fast JSON:API serializer for Ruby Objects..
 - [TailwindCSS](https://github.com/tailwindlabs/tailwindcss) &mdash; A utility-first CSS framework for rapidly building custom user interfaces.
 
-Plus *lots* of Ruby Gems, a complete list of which is at [/main/Gemfile](https://github.com/davidesantangelo/searq/blob/main/Gemfile).
+Plus *lots* of Ruby Gems, a complete list of which is at [/main/Gemfile](https://github.com/searq/searq.org/blob/main/Gemfile).
 
 ## Sponsor me
 
