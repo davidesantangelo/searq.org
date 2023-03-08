@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 every 1.day, at: '1:00 am' do
-  rake 'feeds:synchronize'
+  rake 'feed:synchronize'
 end
