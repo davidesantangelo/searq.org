@@ -18,19 +18,30 @@
 @import "font-awesome";
 
 
-div.hit-description {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+.ais-Hits-item, .ais-InfiniteHits-item {
+  align-items: center;
+  background: #fff;
+  box-shadow: 0 0 0 0;
+  border: 1px solid #e6e6e6;
+  margin-top: 0.5rem;
+  display: flex;
+  font-size: .875rem;
+  font-weight: 400;
+  padding: 1rem;
 }
 
-.ais-Pagination-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  color: #b2e2ff;
-}
+.ais-SearchBox-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  border: 1px solid #d6d6e7;
+  border-radius: 3px;
+  box-shadow: 0 0 0 0;
+  caret-color: #5a5e9a;
+  color: #23263b;
+  flex: 1 1 0%;
+  font: inherit;
+  max-width: 100%;
+  padding-left: 2.5rem;
+  }

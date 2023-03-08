@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
 
   resources :hello, only: %i[index]
+  resources :search, only: %i[index]
 
   root 'hello#index'
 

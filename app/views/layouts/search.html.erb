@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html class="h-full">
+  <head>
+    <title>SearQ</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="author" content="Davide Santangelo">
+    <meta name="description" content="searq - RSS search engine - a search engine that allows you to find RSS feeds easily">
+    <meta name="keywords" content="rails api web RSS">
+    <meta property="og:url" content="https://searq.org">
+    <meta property="og:image" content="https://searq.org/logo.png">
+    <meta property="og:image:width" content="300">
+    <meta property="og:image:height" content="300">
+    <meta property="og:image:alt" content="datorss">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="searq.org - the best RSS search experience you can find">
+    <meta property="og:title" content="searq.org - the best RSS search experience you can find">
+    <meta property="og:description" content="searq.org - RSS search engine - a search engine that allows you to find RSS feeds easily">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <!-- Include only the reset -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@8.0.0/themes/reset-min.css" integrity="sha256-2AeJLzExpZvqLUxMfcs+4DWcMwNfpnjUeAAvEtPr0wU=" crossorigin="anonymous">
+    <!-- or include the full Satellite theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@8.0.0/themes/satellite-min.css" integrity="sha256-p/rGN4RGy6EDumyxF9t7LKxWGg6/MZfGhJM/asKkqvA=" crossorigin="anonymous">
+
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= favicon_link_tag "favicon.png", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <script src="https://cdn.jsdelivr.net/npm/@meilisearch/instant-meilisearch/dist/instant-meilisearch.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4"></script>
+    
+    
+    <%= javascript_importmap_tags %>
+  </head>
+  <body class="font-sans text-white leading-normal tracking-normal h-full">
+    <main class="p-5">
+      <%= yield %>
+    </main>
+  </body>
+  <script>
+    const search = instantsearch({
+      indexName: "Item",
+      searchClient: instantMeiliSearch(
+        "http://localhost:7700",
+        "<%= Rails.application.credentials.meilisearch[Rails.env][:api_key] %>"
+      )
+      });
+      search.addWidgets([
+        instantsearch.widgets.searchBox({
+          container: "#searchbox"
+        }),
+        instantsearch.widgets.configure({ hitsPerPage: 15 }),
+        instantsearch.widgets.hits({
+          container: "#hits",
+          templates: {
+          item: `
+            <div class="text-black">
+              <div class="hit-name font-semibold mb-1">
+                <a class="text-indigo-700 font-semibold hover:underline" href="{{feed_url}}">{{feed_title}}</a>
+                {{#helpers.highlight}}{ "attribute": "title" }{{/helpers.highlight}}
+              </div>
+              <a class="hit-url hover:underline" href="{{url}}">
+                {{#helpers.highlight}}{ "attribute": "url" }{{/helpers.highlight}}
+              </a>
+            </div>
+          `
+          }
+        })
+      ]);
+      search.start();
+  </script>
+</html>

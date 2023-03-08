@@ -11,31 +11,3 @@
 }
 
 */
-
-.ais-SearchBox-input {
-  @apply border border-zinc-700 bg-gray-200 text-gray-800 w-full box-border p-3 rounded-sm;
-}
-
-.ais-SearchBox-input:focus {
-  @apply outline-none border-indigo-500 text-gray-800;
-}
-
-.ais-Pagination-item {
-  @apply border border-gray-700 rounded px-3 py-1 mr-1 text-sm;
-}
-
-span.ais-Pagination-link {
-  @apply text-indigo-700;
-}
-
-.ais-Pagination-item a {
-  @apply text-indigo-700;
-}
-
-.ais-Pagination-item--selected {
-  @apply underline font-bold text-indigo-500;
-}
-
-.ais-Pagination-item--selected a {
-  @apply text-indigo-500;
-}
