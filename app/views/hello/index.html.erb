@@ -13,23 +13,22 @@
       </div>
     </div>
     <div class="relative">
-      <pre class="text-sm leading-6 text-slate-50 flex ligatures-none overflow-auto"><code class="flex-none min-w-full p-5"><span class="flex"><svg viewBox="0 -9 3 24" aria-hidden="true" class="flex-none overflow-visible text-pink-400 w-auto h-6 mr-3"><path d="M0 0L3 3L0 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="flex-auto">GET /search.json -d 'q={q}'</span></span></code></pre>
+      <pre class="text-sm leading-6 text-slate-50 flex ligatures-none overflow-auto"><code class="flex-none min-w-full p-5"><span class="flex"><svg viewBox="0 -9 3 24" aria-hidden="true" class="flex-none overflow-visible text-pink-400 w-auto h-6 mr-3"><path d="M0 0L3 3L0 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="flex-auto"><span class="font-semibold">GET</span> /search.json -d 'q={q}'</span></span></code></pre>
     </div>
   </div>
+  <div class="my-0.5">
+    <%= link_to download_hello_index_path(format: 'csv'), class: "text-xs text-gray-800 hover:underline hover:text-sky-700" do %>
+      <%= @feeds.size %> feeds 
+    <% end %>
+  </div>
   <div class="mt-6 flex items-center justify-center gap-x-6">
-    <a href="https://github.com/searq/searq.org" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+    <a href="https://github.com/searq/searq.org" class="rounded-md bg-indigo-600 px-6 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
       <i class="fa-brands fa-github mr-1"></i>
       GitHub
     </a>
-    <a class="text-sm font-semibold text-gray-900" href="https://github.com/searq/searq.org/wiki">
+    <a class="text-sm font-semibold text-gray-900 hover:underline hover:text-gray-700" href="https://github.com/searq/searq.org/wiki">
       docs <span aria-hidden="true">&rarr;</span>
     </a>
   </div>
 </div>
-<footer class="bg-white absolute bottom-0 right-0 left-0 text-center">
-  <div class="mx-auto max-w-7xl py-6 px-6 lg:px-8">
-    <div class="mt-8 md:order-1 md:mt-0">
-      <p class="text-center text-sm leading-5 text-gray-800">Made by <a href="https://twitter.com/daviducolo" class="text-indigo-800 hover:underline">Davide Santangelo</a></p>
-    </div>
-  </div>
-</footer>
+

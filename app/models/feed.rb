@@ -21,6 +21,18 @@ class Feed < ApplicationRecord
     attribute :title, :description, :language, :url
   end
 
+  def self.to_csv
+    attributes = %w[url title description language items_count]
+
+    CSV.generate(headers: true) do |csv|
+      csv << attributes
+
+      all.each do |feed|
+        csv << attributes.map { |attr| feed.send(attr) }
+      end
+    end
+  end
+
   def store!
     task = tasks.enqueued.create!(task_type: :feed_store, enqueued_at: Time.current)
 

@@ -9,6 +9,15 @@ class HelloController < ApplicationController
       rails
     ].sample
     @code = "curl -G -H \"Authorization: Token #{@token}\" #{@url}/search.json -d \"q=#{@q}\""
+    @feeds = Feed.all
+  end
+
+  def download
+    respond_to do |format|
+      format.csv do
+        send_data Feed.to_csv, filename: "feeds-#{Time.zone.now.to_date}.csv"
+      end
+    end
   end
 
   private

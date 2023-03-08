@@ -28,4 +28,22 @@ RSpec.describe Feed, type: :model do
       end
     end
   end
+
+  describe 'class methods' do
+    describe '.to_csv' do
+      let!(:feeds) { create_list(:feed, 3) }
+
+      it 'returns a CSV string' do
+        expect(Feed.to_csv).to be_a(String)
+      end
+    end
+
+    describe '.to_synchronize' do
+      let!(:feed) { create(:feed, synchronized_at: 1.day.ago) }
+
+      it 'returns feeds to synchronize' do
+        expect(Feed.to_synchronize).to include(feed)
+      end
+    end
+  end
 end

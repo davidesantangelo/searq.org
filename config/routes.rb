@@ -3,7 +3,11 @@
 Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
 
-  resources :hello, only: %i[index]
+  resources :hello, only: %i[index] do
+    collection do
+      get :download
+    end
+  end
 
   root 'hello#index'
 
