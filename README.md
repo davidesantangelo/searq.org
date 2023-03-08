@@ -11,7 +11,7 @@ The engine works by aggregating information from multiple RSS feeds, indexing th
 By utilizing RSS feeds, the search results are often more targeted and accurate, making it easier for users to find the information they are looking for. Additionally, because the information is being pulled from a variety of sources, users may also be exposed to a wider range of perspectives and opinions on a given topic.
 
 ```sh
-GET http://searq.org/api/search?q={query}
+curl -G -H "Authorization: Token {TOKEN}" https://searq.org/api/search.json -d "q={q}"
 ```
 
 ```json
