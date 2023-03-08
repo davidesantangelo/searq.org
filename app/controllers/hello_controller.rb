@@ -7,15 +7,6 @@ class HelloController < ApplicationController
     @q = %w[
       ruby
       rails
-      javascript
-      react
-      vue
-      angular
-      node
-      python
-      django
-      flask
-      elixir
     ].sample
     @code = "curl -G -H \"Authorization: Token #{@token}\" #{@url}/search.json -d \"q=#{@q}\""
   end

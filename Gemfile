@@ -70,6 +70,7 @@ group :development, :test do
   gem 'capistrano-passenger', '~> 0.2.0'
   gem 'capistrano-rails', '~> 1.4'
   gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
+  gem 'capistrano-sidekiq'
   gem 'ed25519', '~> 1.2'
 
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

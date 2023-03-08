@@ -90,6 +90,10 @@ GEM
     capistrano-rbenv (2.2.0)
       capistrano (~> 3.1)
       sshkit (~> 1.3)
+    capistrano-sidekiq (2.3.0)
+      capistrano (>= 3.9.0)
+      capistrano-bundler
+      sidekiq (>= 6.0)
     capybara (3.38.0)
       addressable
       matrix
@@ -351,6 +355,7 @@ DEPENDENCIES
   capistrano-passenger (~> 0.2.0)
   capistrano-rails (~> 1.4)
   capistrano-rbenv (~> 2.1, >= 2.1.4)
+  capistrano-sidekiq
   capybara
   debug
   ed25519 (~> 1.2)
