@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html class="h-full">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F74YF5W1BQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      
+      gtag('config', 'G-F74YF5W1BQ');
+    </script>
     <title>SearQ</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="author" content="Davide Santangelo">
@@ -22,7 +31,6 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-  
   <body class="font-sans text-white leading-normal tracking-normal h-full bg-gray-50">
     <main class="grid min-h-full place-items-center  px-4">
       <%= yield %>
