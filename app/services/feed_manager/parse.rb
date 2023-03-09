@@ -19,10 +19,23 @@ module FeedManager
     end
 
     def body
-      HTTParty.get(normalized_feed_url).body
+      response = HTTParty.get(feed_url).response
+
+      code = response.code.to_i
+
+      case code
+      when 200
+        response.body
+      when 301, 302
+        HTTParty.get(response.headers['location']).response.body
+      when 403
+        RestClient.get(feed_url).body
+      else
+        raise code
+      end
     end
 
-    def normalized_feed_url
+    def feed_url
       url.gsub('feed://', '').gsub('feed:', '').squish
     end
   end
