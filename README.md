@@ -45,6 +45,13 @@ curl -G -H "Authorization: Token {TOKEN}" https://searq.org/api/search.json -d "
 }
 ```
 
+## Examples
+
+Here are all the calls you can make to the API. Enjoy!
+
+https://github.com/searq/searq.org/blob/main/EXAMPLES.md
+
+
 ## Mielesearch
 
 SearQ uses [Meilisearch](https://www.meilisearch.com) as search engine. Meilisearch is an open-source, lightning-fast, and hyper-relevant search engine that fits effortlessly into your apps. It is written in Rust and uses LMDB as a storage engine. It is a standalone binary that can be run on any platform. It is also available as a Docker image.
