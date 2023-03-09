@@ -3,15 +3,21 @@
 Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
 
+  root 'hello#index'
+
+  get '/api', to: 'api/base#info'
+
   resources :hello, only: %i[index] do
     collection do
       get :download
     end
   end
 
-  root 'hello#index'
-
-  get '/api', to: 'api/base#info'
+  resources :exports, only: %i[index] do
+    collection do
+      post :download
+    end
+  end
 
   namespace :api, defaults: { format: 'json' } do
     resources :feeds, except: %i[new edit destroy] do

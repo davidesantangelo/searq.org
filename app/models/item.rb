@@ -43,6 +43,26 @@ class Item < ApplicationRecord
     end
   end
 
+  def self.to_csv
+    attributes = %w[feed_title feed_url title url categories published_at]
+
+    CSV.generate(headers: true) do |csv|
+      csv << attributes
+
+      all.each do |item|
+        csv << attributes.map { |attr| item.send(attr) }
+      end
+    end
+  end
+
+  def feed_title
+    feed.title
+  end
+
+  def feed_url
+    feed.url
+  end
+
   def text
     strip_tags(body.presence || title).to_s.squish
   end

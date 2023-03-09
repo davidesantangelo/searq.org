@@ -17,8 +17,8 @@
     </div>
   </div>
   <div class="my-0.5">
-    <%= link_to download_hello_index_path(format: 'csv'), class: "text-xs text-gray-800 hover:underline hover:text-sky-700" do %>
-      <%= @feeds_count %> source feeds 
+    <%= link_to exports_path, class: "text-xs text-gray-800 hover:underline hover:text-sky-700" do %>
+      export query from <span class="font-semibold"><%= @feeds_count %></span> source feeds 
     <% end %>
   </div>
   <div class="mt-6 flex items-center justify-center gap-x-6">
