@@ -51,6 +51,11 @@ Here are all the calls you can make to the API. Enjoy!
 
 https://github.com/searq/searq.org/blob/main/EXAMPLES.md
 
+## Export
+
+With SearQ you can export your own query as clean CSV file.
+
+https://searq.org/exports
 
 ## Mielesearch
 
