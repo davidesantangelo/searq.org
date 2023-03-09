@@ -45,6 +45,20 @@ curl -G -H "Authorization: Token {TOKEN}" https://searq.org/api/search.json -d "
 }
 ```
 
+## Phrase search
+
+If you enclose search terms in double quotes ("), Meilisearch will only return documents containing those terms in the order they were given. This is called a phrase search.
+
+Phrase searches are case-insensitive and ignore soft separators such as -, ,, and :. Using a hard separator within a phrase search effectively splits it into multiple separate phrase searches: "Octavia.Butler" will return the same results as "Octavia" "Butler".
+
+You can combine phrase search and normal queries in a single search request. 
+
+## Relevancy
+
+Relevancy refers to the accuracy and effectiveness of search results. If search results are almost always appropriate, then they can be considered relevant, and vice versa.
+
+In order to ensure relevant results, search responses are sorted based on a set of consecutive rules called ranking rules.
+
 ## Examples
 
 Here are all the calls you can make to the API. Enjoy!
