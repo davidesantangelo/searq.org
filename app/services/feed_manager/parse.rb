@@ -19,19 +19,21 @@ module FeedManager
     end
 
     def body
-      response = HTTParty.get(feed_url).response
+      Timeout.timeout(1.minutes.in_seconds) do
+        response = HTTParty.get(feed_url).response
 
-      code = response.code.to_i
+        code = response.code.to_i
 
-      case code
-      when 200
-        response.body
-      when 301, 302
-        HTTParty.get(response.headers['location']).response.body
-      when 403
-        RestClient.get(feed_url).body
-      else
-        raise code
+        case code
+        when 200
+          response.body
+        when 301, 302
+          HTTParty.get(response.headers['location']).response.body
+        when 403
+          RestClient.get(feed_url).body
+        else
+          raise code
+        end
       end
     end
 
