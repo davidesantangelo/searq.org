@@ -17,7 +17,7 @@
     </div>
   </div>
   <div class="my-0.5">
-    <%= link_to exports_path, class: "text-xs text-gray-800 hover:underline hover:text-sky-700" do %>
+    <%= link_to exports_path, class: "text-xs text-gray-800 hover:underline hover:text-sky-700", data: {turbo: false} do %>
       export query from <span class="font-semibold"><%= @feeds_count %></span> source feeds 
     <% end %>
   </div>
