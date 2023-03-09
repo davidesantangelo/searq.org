@@ -26,7 +26,7 @@ module Api
 
     def options
       {
-        limit: permitted_params[:limit],
+        limit: permitted_params[:limit].to_i,
         sort: ["#{permitted_params[:sort]}:#{permitted_params[:direction]}"]
       }
     end
