@@ -23,7 +23,7 @@ class ExportsController < ApplicationController
   end
 
   def csv
-    attributes = %w[feed_title feed_url title url categories published_at]
+    attributes = %w[feed_title feed_url title text url categories published_at]
 
     CSV.generate(headers: true) do |csv|
       csv << attributes

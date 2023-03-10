@@ -240,7 +240,7 @@ GEM
       zeitwerk (~> 2.5)
     rake (13.0.6)
     redis (4.8.1)
-    redis-client (0.13.0)
+    redis-client (0.14.0)
       connection_pool
     regexp_parser (2.7.0)
     request_store (1.5.1)
