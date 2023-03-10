@@ -2,7 +2,7 @@
   <a class="text-base font-semibold text-indigo-600 hover:text-indigo-400" href="/"><i class="fa-solid fa-rss"></i></a>
   <div class="mt-4">
     <%= form_with url: download_exports_path(format: :csv), method: :post do |f| %>
-      <%= f.text_area :q, class: "block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:py-1.5 sm:text-sm sm:leading-6", placeholder: "Export items from #{@feeds_count} feeds. Eg. \"Ruby on Rails\" ", rows: 8, cols: 42, name: "query", data: {"export-target" => 'query', action: 'input->export#check'} %>
+      <%= f.text_area :q, class: "block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:py-1.5 sm:text-sm sm:leading-6", placeholder: "Export query from #{@feeds_count} feeds. Eg. \"Ruby on Rails\" ", rows: 8, cols: 42, name: "query", data: {"export-target" => 'query', action: 'input->export#check'} %>
       <%= button_tag(type: "submit", disabled: true, id:'export-btn', class: "block w-full mt-4 rounded-md bg-indigo-600 px-6 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", title: "export query to CSV", name: "export",  data: {"export-target" => 'button'}) do %>
         <i class="fa fa-download mr-2"></i>
         Export to CSV
