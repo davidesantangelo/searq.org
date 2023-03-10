@@ -59,6 +59,10 @@ Relevancy refers to the accuracy and effectiveness of search results. If search 
 
 In order to ensure relevant results, search responses are sorted based on a set of consecutive rules called ranking rules.
 
+## Feeds
+
+You can export the current CSV list of feeds used as sources directly from [here](https://searq.org/hello/download?format=csv)
+
 ## Examples
 
 Here are all the calls you can make to the API. Enjoy!
