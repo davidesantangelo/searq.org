@@ -1,7 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 
 import ClipboardJS from 'clipboard'
-
 export default class extends Controller {
   connect() {
     var clipboard = new ClipboardJS('.btn');

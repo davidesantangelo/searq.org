@@ -9,7 +9,6 @@ class HelloController < ApplicationController
       rails
     ].sample
     @code = "curl -G -H \"Authorization: Token #{@token}\" #{@url}/search.json -d \"q=#{@q}\""
-    @feeds_count = Feed.count
   end
 
   def download

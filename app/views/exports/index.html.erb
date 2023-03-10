@@ -1,5 +1,5 @@
 <div class="text-center" data-controller="export">
-  <a class="text-base font-semibold text-indigo-600 hover:text-indigo-500" href="/"><i class="fa-solid fa-rss"></i></a>
+  <a class="text-base font-semibold text-yellow-500 hover:text-yellow-400" href="/"><i class="fa-solid fa-rss"></i></a>
   <div class="mt-4">
     <%= form_with url: download_exports_path(format: :csv), method: :post do |f| %>
       <%= f.text_area :q, class: "block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:py-1.5 sm:text-sm sm:leading-6", placeholder: "write your query and then press export button (max 5000 items per query)", rows: 8, cols: 42, name: "query", data: {"export-target" => 'query', action: 'input->export#check'} %>

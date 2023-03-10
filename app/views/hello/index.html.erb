@@ -1,7 +1,7 @@
 <div class="text-center" data-controller="hello">
   <p class="text-base font-semibold text-indigo-600"><i class="fa-solid fa-rss"></i></p>
   <h1 class="mt-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">SearQ</h1>
-  <p class="mt-4 text-sm md:text-lg leading-7 text-gray-600">The RESTful RSS search experience you deserve.</p>
+  <p class="mt-4 text-sm md:text-lg leading-7 text-gray-600">Free and Fast, Cool, RESTful RSS Search Engine.</p>
   <div class=" text-left mt-5 relative z-10 col-span-3 bg-slate-800 rounded-lg shadow-lg xl:ml-0 dark:shadow-none dark:ring-1 dark:ring-inset dark:ring-white/10">
     <div class="relative flex text-slate-400 text-xs leading-6">
       <div class="mt-2 flex-none text-sky-300 border-t border-b border-t-transparent border-b-sky-300 px-4 py-1 flex items-center"><%= @url %></div>
@@ -16,19 +16,19 @@
       <pre class="text-sm leading-6 text-slate-50 flex ligatures-none overflow-auto"><code class="flex-none min-w-full p-5"><span class="flex"><svg viewBox="0 -9 3 24" aria-hidden="true" class="flex-none overflow-visible text-pink-400 w-auto h-6 mr-3"><path d="M0 0L3 3L0 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="flex-auto"><span class="font-semibold">GET</span> /search.json -d 'q={q}'</span></span></code></pre>
     </div>
   </div>
-  <div class="my-0.5">
-    <%= link_to exports_path, class: "text-xs text-gray-800 hover:underline hover:text-sky-700", data: {turbo: false} do %>
-      export query from <span class="font-semibold"><%= @feeds_count %></span> source feeds 
-    <% end %>
-  </div>
-  <div class="mt-6 flex items-center justify-center gap-x-6">
-    <a href="https://github.com/searq/searq.org" class="rounded-md bg-indigo-600 px-6 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-      <i class="fa-brands fa-github mr-1"></i>
+  
+  <div class="mt-4 flex items-center justify-center gap-x-2">
+    <a id="github-btn" href="https://github.com/searq/searq.org" class="rounded bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white  hover:bg-indigo-500 visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+      <i class="fa-brands fa-github"></i>
       GitHub
     </a>
-    <a class="text-sm font-semibold text-gray-900 hover:underline hover:text-gray-700" href="https://github.com/searq/searq.org/wiki">
-      docs <span aria-hidden="true">&rarr;</span>
+    <a  id="docs-btn" class="rounded bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white  hover:bg-indigo-500 visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="https://github.com/searq/searq.org/wiki">
+      <i class="fa fa-book"></i>
+      Docs
     </a>
+    <%= link_to exports_path, id: 'export-btn', class: "rounded bg-yellow-500 px-4 py-2.5 text-sm font-semibold text-white  hover:bg-yellow-400 visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", data: {turbo: false} do %>
+      <i class="fa fa-download"></i>
+      Export
+    <% end %>
   </div>
 </div>
-
