@@ -26,7 +26,7 @@ module FeedManager
       result = Entries.new(feed:).call
 
       result.select do |entry|
-        entry.published >= feed.items.last.published_at
+        entry.published.present? && entry.published >= feed.items.last.published_at
       end
     end
   end
