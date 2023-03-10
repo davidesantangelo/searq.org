@@ -47,7 +47,7 @@ curl -G -H "Authorization: Token {TOKEN}" https://searq.org/api/search.json -d "
 
 ## Phrase search
 
-If you enclose search terms in double quotes ("), Meilisearch will only return documents containing those terms in the order they were given. This is called a phrase search.
+If you enclose search terms in double quotes ("), SearQ will only return documents containing those terms in the order they were given. This is called a phrase search.
 
 Phrase searches are case-insensitive and ignore soft separators such as -, ,, and :. Using a hard separator within a phrase search effectively splits it into multiple separate phrase searches: "Octavia.Butler" will return the same results as "Octavia" "Butler".
 
