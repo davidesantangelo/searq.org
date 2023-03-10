@@ -13,7 +13,7 @@ module Api
     private
 
     def permitted_params
-      params.permit(:q, :sort, :direction, :limit).with_defaults(
+      params.permit(:q, :sort, :direction, :limit, :offset).with_defaults(
         sort: 'published_at',
         direction: 'desc',
         limit: 1000,
