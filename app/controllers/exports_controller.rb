@@ -19,7 +19,7 @@ class ExportsController < ApplicationController
   private
 
   def items
-    Item.search(params[:query], { limit: 5000 })
+    Item.search(params[:query], { limit: 1000 })
   end
 
   def csv

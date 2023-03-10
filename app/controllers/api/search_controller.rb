@@ -16,7 +16,8 @@ module Api
       params.permit(:q, :sort, :direction, :limit).with_defaults(
         sort: 'published_at',
         direction: 'desc',
-        limit: 1000
+        limit: 1000,
+        offset: 0
       )
     end
 
@@ -27,6 +28,7 @@ module Api
     def options
       {
         limit: permitted_params[:limit].to_i,
+        offset: permitted_params[:offset].to_i,
         sort: ["#{permitted_params[:sort]}:#{permitted_params[:direction]}"]
       }
     end
