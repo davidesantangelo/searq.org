@@ -22,7 +22,7 @@ module FeedJob
     rescue ActiveRecord::RecordNotFound => e
       raise e
     rescue StandardError => e
-      task.error_message = { message: e.message }
+      task.error_message = { message: e.message, backtrace: e.backtrace }
       task.failed!
       task.save
       raise e
