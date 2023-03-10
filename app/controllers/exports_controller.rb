@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class ExportsController < ApplicationController
+  def index
+    @feeds_count = Feed.count
+  end
+  
   def download
     respond_to do |format|
       format.csv do

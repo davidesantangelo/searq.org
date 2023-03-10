@@ -16,19 +16,17 @@
       <pre class="text-sm leading-6 text-slate-50 flex ligatures-none overflow-auto"><code class="flex-none min-w-full p-5"><span class="flex"><svg viewBox="0 -9 3 24" aria-hidden="true" class="flex-none overflow-visible text-pink-400 w-auto h-6 mr-3"><path d="M0 0L3 3L0 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="flex-auto"><span class="font-semibold">GET</span> /search.json -d 'q={q}'</span></span></code></pre>
     </div>
   </div>
-  
-  <div class="mt-4 flex items-center justify-center gap-x-2">
-    <a id="github-btn" href="https://github.com/searq/searq.org" class="rounded bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white  hover:bg-indigo-500 visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-      <i class="fa-brands fa-github"></i>
-      GitHub
-    </a>
-    <a  id="docs-btn" class="rounded bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white  hover:bg-indigo-500 visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="https://github.com/searq/searq.org/wiki">
-      <i class="fa fa-book"></i>
-      Docs
-    </a>
-    <%= link_to exports_path, id: 'export-btn', class: "rounded bg-yellow-500 px-4 py-2.5 text-sm font-semibold text-white  hover:bg-yellow-400 visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", data: {turbo: false} do %>
-      <i class="fa fa-download"></i>
-      Export
-    <% end %>
+  <div class="mt-6 flex items-center justify-center">
+    <span class="isolate inline-flex rounded-md shadow-sm">
+      <a id="github-btn" href="https://github.com/searq/searq.org" class="relative inline-flex items-center rounded-l-md bg-white px-4 py-2 text-sm font-semibold text-indigo-600 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10">
+        GitHub
+      </a>
+      <a id="docs-btn" href="https://github.com/searq/searq.org/wiki" class="relative -ml-px inline-flex items-center bg-white px-4 py-2 text-sm font-semibold text-indigo-600 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10">
+        Docs
+      </a>
+      <%= link_to exports_path, id: 'tool-btn', class: "relative -ml-px inline-flex items-center rounded-r-md bg-white px-4 py-2 text-sm font-semibold text-indigo-600 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10", data: {turbo: false} do %>
+        Export
+      <% end %>
+    </span>
   </div>
 </div>
