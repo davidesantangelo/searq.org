@@ -1,0 +1,15 @@
+<div class="text-center" data-controller="flow">
+  <a class="text-base font-semibold text-green-500 hover:text-green-400" href="/"><i class="fa-solid fa-rss"></i></a>
+  <h1 class="mt-4 text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Flows</h1>
+  <div class="mt-6">
+    <%= form_with url: flows_path, method: :post do |f| %>
+      <%= f.text_area :query, class: "block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:py-1.5 sm:text-sm sm:leading-6", placeholder: "insert your query here", rows: 8, cols: 42, name: "flow[query]", data: {"flow-target" => 'queryFlow', action: 'input->flow#check'} %>
+      <%= f.submit "Create", disabled: true, id: 'flows-btn', class: "block w-full mt-4 rounded-md bg-green-500 px-6 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-400 visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 cursor-pointer", title: "search query", name: "submit", data: {"flow-target" => 'buttonFlow'} %>
+    <% end %>
+  </div>
+  <div class="mt-6">
+    <a class="text-sm font-semibold text-gray-900 hover:underline hover:text-sky-500" href="/">
+      searq.org 
+    </a>
+  </div>
+</div>

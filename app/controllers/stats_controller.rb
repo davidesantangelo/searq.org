@@ -5,5 +5,6 @@ class StatsController < ApplicationController
     @feeds_count = Feed.count
     @items_count = Feed.sum(:items_count)
     @tokens_count = Token.count
+    @flows_count = Flow.count
   end
 end

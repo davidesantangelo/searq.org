@@ -73,6 +73,18 @@ CREATE TABLE public.feeds (
 
 
 --
+-- Name: flows; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.flows (
+    id uuid DEFAULT gen_random_uuid() NOT NULL,
+    query text NOT NULL,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL
+);
+
+
+--
 -- Name: items; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -146,6 +158,14 @@ ALTER TABLE ONLY public.ar_internal_metadata
 
 ALTER TABLE ONLY public.feeds
     ADD CONSTRAINT feeds_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: flows flows_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.flows
+    ADD CONSTRAINT flows_pkey PRIMARY KEY (id);
 
 
 --
@@ -348,6 +368,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20230218094346'),
 ('20230219174535'),
 ('20230222105024'),
-('20230307080723');
+('20230307080723'),
+('20230313134244');
 
 

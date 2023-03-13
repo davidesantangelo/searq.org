@@ -1,9 +1,9 @@
 <div class="text-center" data-controller="export">
-  <a class="text-base font-semibold text-indigo-600 hover:text-indigo-400" href="/"><i class="fa-solid fa-rss"></i></a>
+  <a class="text-base font-semibold text-red-500 hover:text-red-400" href="/"><i class="fa-solid fa-rss"></i></a>
   <h1 class="mt-4 text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Stats</h1>
   <div class="mt-6">
-    <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
-      <div class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
+    <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-4">
+      <div class="overflow-hidden rounded-lg bg-white px-4 py-5 border sm:p-6">
         <dt class="truncate text-sm font-medium text-gray-500">Total Feeds</dt>
         <dd class="mt-1 text-3xl font-semibold tracking-tight text-indigo-500">
           <%= link_to download_hello_index_path(format: :csv), class: "hover:underline" do %>
@@ -11,13 +11,17 @@
           <% end %>
         </dd>
       </div>
-      <div class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
+      <div class="overflow-hidden rounded-lg bg-white px-4 py-5 border sm:p-6">
         <dt class="truncate text-sm font-medium text-gray-500">Total Items</dt>
         <dd class="mt-1 text-3xl font-semibold tracking-tight text-yellow-500"><%= number_to_human(@items_count, format: '%n %u', units: { thousand: 'K', million: 'M' }) %></dd>
       </div>
-      <div class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
+      <div class="overflow-hidden rounded-lg bg-white px-4 py-5 border sm:p-6">
+        <dt class="truncate text-sm font-medium text-gray-500">Total Flows</dt>
+        <dd class="mt-1 text-3xl font-semibold tracking-tight text-green-500"><%= number_to_human(@flows_count, format: '%n %u', units: { thousand: 'K', million: 'M' }) %></dd>
+      </div>
+      <div class="overflow-hidden rounded-lg bg-white px-4 py-5 border sm:p-6">
         <dt class="truncate text-sm font-medium text-gray-500">Total Tokens</dt>
-        <dd class="mt-1 text-3xl font-semibold tracking-tight text-red-500"><%= number_to_human(@tokens_count, format: '%n %u', units: { thousand: 'K', million: 'M' }) %></dd>
+        <dd class="mt-1 text-3xl font-semibold tracking-tight text-sky-500"><%= number_to_human(@tokens_count, format: '%n %u', units: { thousand: 'K', million: 'M' }) %></dd>
       </div>
     </dl>
   </div>
