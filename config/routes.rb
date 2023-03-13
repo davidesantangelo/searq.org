@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :stats, only: %i[index]
+
   namespace :api, defaults: { format: 'json' } do
     resources :feeds, except: %i[new edit destroy] do
       member do

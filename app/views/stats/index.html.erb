@@ -1,0 +1,27 @@
+<div class="text-center" data-controller="export">
+  <a class="text-base font-semibold text-indigo-600 hover:text-indigo-400" href="/"><i class="fa-solid fa-rss"></i></a>
+  <h1 class="mt-4 text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Stats</h1>
+  <div class="mt-6">
+    <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
+      <div class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
+        <dt class="truncate text-sm font-medium text-gray-500">Total Feeds</dt>
+        <dd class="mt-1 text-3xl font-semibold tracking-tight text-indigo-500"><%= @feeds_count %></dd>
+      </div>
+
+      <div class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
+        <dt class="truncate text-sm font-medium text-gray-500">Total Items</dt>
+        <dd class="mt-1 text-3xl font-semibold tracking-tight text-yellow-500"><%= @items_count %></dd>
+      </div>
+
+      <div class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
+        <dt class="truncate text-sm font-medium text-gray-500">Total Tokens</dt>
+        <dd class="mt-1 text-3xl font-semibold tracking-tight text-red-500"><%= @tokens_count %></dd>
+      </div>
+    </dl>
+  </div>
+  <div class="mt-6">
+    <a class="text-sm font-semibold text-gray-900 hover:underline hover:text-sky-500" href="/">
+      searq.org 
+    </a>
+  </div>
+</div>

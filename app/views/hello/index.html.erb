@@ -18,14 +18,17 @@
   </div>
   <div class="mt-6 flex items-center justify-center">
     <span class="isolate inline-flex rounded-md shadow-sm w-9/12">
-      <a id="github-btn" href="https://github.com/searq/searq.org" class="relative items-center rounded-l-md bg-white px-4 py-2 text-sm font-semibold text-indigo-600 ring-1 ring-inset ring-gray-300 hover:bg-indigo-50 focus:z-10 w-4/12">
+      <a id="github-btn" href="https://github.com/searq/searq.org" class="relative items-center rounded-l-md bg-white px-0.5 py-2 text-xs md:text-sm font-semibold text-indigo-600 ring-1 ring-inset ring-gray-300 hover:bg-indigo-50 hover:underline focus:z-10 w-3/12">
         GitHub
       </a>
-      <a id="docs-btn" href="https://github.com/searq/searq.org/wiki" class="relative -ml-px  items-center bg-white px-4 py-2 text-sm font-semibold text-indigo-600 ring-1 ring-inset ring-gray-300 hover:bg-sky-50 focus:z-10 w-4/12">
+      <a id="docs-btn" href="https://github.com/searq/searq.org/wiki" class="relative -ml-px items-center bg-white px-0.5 py-2 text-xs md:text-sm font-semibold text-indigo-600 ring-1 ring-inset ring-gray-300 hover:bg-sky-50 hover:underline focus:z-10 w-3/12">
         Docs
       </a>
-      <%= link_to exports_path, id: 'tool-btn', class: "relative -ml-px  items-center rounded-r-md bg-white px-4 py-2 text-sm font-semibold text-indigo-600 ring-1 ring-inset ring-gray-300 hover:bg-yellow-50 focus:z-10 w-4/12" do %>
+      <%= link_to exports_path, id: 'tool-btn', class: "relative -ml-px  items-center bg-white px-0.5 py-2 text-xs md:text-sm font-semibold text-indigo-600 ring-1 ring-inset ring-gray-300 hover:bg-yellow-50 hover:underline focus:z-10 w-3/12" do %>
         Export
+      <% end %>
+      <%= link_to stats_path, id: 'stats-btn', class: "relative -ml-px  items-center rounded-r-md bg-white px-0.5 py-2 text-xs md:text-sm font-semibold text-indigo-600 ring-1 ring-inset ring-gray-300 hover:bg-red-50 hover:underline focus:z-10 w-3/12" do %>
+        Stats
       <% end %>
     </span>
   </div>
