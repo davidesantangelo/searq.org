@@ -5,14 +5,16 @@
     <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
       <div class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
         <dt class="truncate text-sm font-medium text-gray-500">Total Feeds</dt>
-        <dd class="mt-1 text-3xl font-semibold tracking-tight text-indigo-500"><%= number_to_human(@feeds_count, format: '%n %u', units: { thousand: 'K', million: 'M' }) %></dd>
+        <dd class="mt-1 text-3xl font-semibold tracking-tight text-indigo-500">
+          <%= link_to download_hello_index_path(format: :csv), class: "hover:underline" do %>
+            <%= number_to_human(@feeds_count, format: '%n %u', units: { thousand: 'K', million: 'M' }) %>
+          <% end %>
+        </dd>
       </div>
-
       <div class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
         <dt class="truncate text-sm font-medium text-gray-500">Total Items</dt>
         <dd class="mt-1 text-3xl font-semibold tracking-tight text-yellow-500"><%= number_to_human(@items_count, format: '%n %u', units: { thousand: 'K', million: 'M' }) %></dd>
       </div>
-
       <div class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
         <dt class="truncate text-sm font-medium text-gray-500">Total Tokens</dt>
         <dd class="mt-1 text-3xl font-semibold tracking-tight text-red-500"><%= number_to_human(@tokens_count, format: '%n %u', units: { thousand: 'K', million: 'M' }) %></dd>
