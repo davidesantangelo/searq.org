@@ -19,7 +19,15 @@ class ExportsController < ApplicationController
   private
 
   def items
-    Item.search(params[:query], { limit: 1000 })
+    Item.search(params[:query], options)
+  end
+
+  def options
+    {
+      limit: 1000,
+      offset: 0,
+      sort: ['published_at:desc']
+    }
   end
 
   def csv
