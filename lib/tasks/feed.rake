@@ -2,8 +2,12 @@
 
 namespace :feed do
   desc 'fetch and update items from all feeds'
-  task synchronize: :environment do
-    Feed.to_synchronize.find_each(&:synchronize!)
+  task synchronize: :environment do |_t, args|
+    if args[:force]
+      Feed.find_each(&:synchronize!)
+    else
+      Feed.to_synchronize.find_each(&:synchronize!)
+    end
   end
 
   desc 'fetch and update items from a specific feed'

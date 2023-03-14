@@ -14,7 +14,7 @@ class Feed < ApplicationRecord
   validates_associated :items
 
   # scopes
-  scope :to_synchronize, -> { where('synchronized_at < ?', 12.hours.ago).or(where(synchronized_at: nil)) }
+  scope :to_synchronize, -> { where('synchronized_at < ?', 8.hours.ago).or(where(synchronized_at: nil)) }
 
   # search
   meilisearch do
