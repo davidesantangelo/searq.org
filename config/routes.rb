@@ -42,5 +42,10 @@ Rails.application.routes.draw do
 
     resources :search, only: %i[index]
     resources :tasks, only: %i[index show]
+    resources :flows, except: %i[new edit destroy] do
+      member do
+        get :items
+      end
+    end
   end
 end

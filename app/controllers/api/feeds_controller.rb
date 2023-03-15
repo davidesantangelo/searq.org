@@ -5,7 +5,7 @@ module Api
     before_action :set_feed, only: %i[show tasks update]
     before_action :check_create_params, only: :create
     before_action :create_feed, only: :create
-    before_action :check_params, only: :search
+    before_action :check_search_params, only: :search
 
     def index
       @pagy, @feeds = pagy(Feed.all)
@@ -61,11 +61,8 @@ module Api
       json_error_response('Validation Failed', 'missing URL param', :unprocessable_entity) unless params[:url].present?
     end
 
-    def check_params
-      return if params[:q].present?
-
-      json_error_response('Validation Failed', 'missing q param',
-                          :unprocessable_entity)
+    def check_search_params
+      json_error_response('Validation Failed', 'missing q param', :unprocessable_entity) unless params[:q].present?
     end
 
     def set_feed

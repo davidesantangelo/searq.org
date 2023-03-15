@@ -11,7 +11,7 @@ class FlowsController < ApplicationController
         render :show
       end
       format.json do
-        render json: items
+        render json: @flow.items
       end
     end
   end
@@ -27,18 +27,6 @@ class FlowsController < ApplicationController
   end
 
   private
-
-  def items
-    Item.search(@flow.query, options)
-  end
-
-  def options
-    {
-      limit: 1000,
-      offset: 0,
-      sort: ['published_at:desc']
-    }
-  end
 
   def set_flow
     @flow = Flow.find(params[:id])
