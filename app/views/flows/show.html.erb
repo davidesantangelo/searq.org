@@ -12,7 +12,7 @@
               </div>
               <div class="ml-3 w-0 flex-1 pt-0.5">
                 <p class="text-sm font-medium text-gray-900"><%= flash[:notice] %></p>
-                <p class="mt-1 text-sm text-gray-500">Anyone with the <a href="https://searq.org/flows/<%=@flow.id%>.json" target="_BLANK" class="text-sky-600 hover:underline">link</a> can view this flow.</p>
+                <p class="mt-1 text-sm text-gray-500">Anyone with the <%= link_to flow_path(@flow), method: :get, target: "_blank", class: "text-sky-500 hover:underline" do %>link<% end %> can view this flow.</p>
               </div>
               <div class="ml-4 flex flex-shrink-0">
                 <button type="button" class="inline-flex rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" onclick="this.closest('.notification-modal').remove()">
@@ -38,8 +38,8 @@
     <% end %>
   </div>
   <div class="mt-6">
-    <a class="text-base font-semibold text-gray-900 hover:underline hover:text-sky-500" href="/">
-      searq.org 
+    <a class="text-base font-semibold text-gray-900 hover:underline hover:text-sky-500" href="/flows">
+      searq.org/flows
     </a>
   </div>
 </div>
