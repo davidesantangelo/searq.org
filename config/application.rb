@@ -12,7 +12,7 @@ module Searq
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
-
+    config.exceptions_app = routes
     config.active_record.schema_format = :sql
 
     config.middleware.insert_before 0, Rack::Cors do
