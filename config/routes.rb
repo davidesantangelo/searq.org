@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   resources :exports, only: %i[index] do
     collection do
-      post :download
+      post :execute
     end
   end
 

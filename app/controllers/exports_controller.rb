@@ -5,7 +5,7 @@ class ExportsController < ApplicationController
     @feeds_count = Feed.count
   end
 
-  def download
+  def execute
     respond_to do |format|
       format.csv do
         send_data csv, filename: "items-#{Time.zone.now.to_date}.csv"

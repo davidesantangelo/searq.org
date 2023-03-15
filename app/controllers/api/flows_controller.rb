@@ -6,7 +6,7 @@ module Api
     before_action :set_flow, only: %i[show update items]
 
     def index
-      @pagy, @flows = pagy(Flow.all)
+      @pagy, @flows = pagy(Flow.all.order(created_at: :desc))
 
       json_response_with_serializer(@flows)
     end
