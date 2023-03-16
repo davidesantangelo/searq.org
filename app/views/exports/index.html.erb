@@ -3,12 +3,12 @@
   <h1 class="mt-4 text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Export</h1>
   <div class="mt-6">
     <%= form_with url: execute_exports_path(format: :csv), method: :post do |f| %>
-      <%= f.text_area :q, class: "block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:py-1.5 sm:text-sm sm:leading-6", placeholder: "start typing your search...", rows: 8, cols: 42, name: "query", data: {"export-target" => 'query', action: 'input->export#check'} %>
+      <%= f.text_area :q, class: "block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:py-1.5 sm:text-sm sm:leading-6", placeholder: "insert your query here and press export", rows: 8, cols: 42, name: "query", data: {"export-target" => 'query', action: 'input->export#check'} %>
       <%= f.submit "Export", disabled: true, id: 'export-btn', class: "block w-full mt-4 rounded-md bg-yellow-500 px-6 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-yellow-400 visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 cursor-pointer", title: "search query", name: 'submit', data: {"export-target" => 'button'} %>
     <% end %>
   </div>
   <div class="mt-3 md:mt-6">
-    <a class="text-base font-semibold text-gray-900 hover:underline hover:text-sky-500" href="/">
+    <a class="text-base text-gray-900 hover:underline hover:text-sky-500" href="/">
       searq.org 
     </a>
   </div>

@@ -18,8 +18,8 @@ class FlowsController < ApplicationController
     @flow = Flow.new(flow_params)
 
     if @flow.save
-      flash.now[:notice] = 'Flow was successfully created.'
-      render :show, status: :created, location: @flow
+      flash[:notice] = 'Flow was successfully created.'
+      redirect_to @flow
     else
       flash[:error] = 'Flow could not be created.'
       render :index, status: :unprocessable_entity
