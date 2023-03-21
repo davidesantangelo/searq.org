@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 every 4.hours do
-  rake 'feed:synchronize'
+  runner "Feed.to_synchronize.find_each(&:synchronize!)"
 end
