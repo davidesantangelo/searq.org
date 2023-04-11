@@ -43,7 +43,7 @@ Rails.application.routes.draw do
         post :refresh
       end
     end
-
+    resources :webhooks
     resources :search, only: %i[index]
     resources :tasks, only: %i[index show]
     resources :flows, except: %i[new edit destroy] do

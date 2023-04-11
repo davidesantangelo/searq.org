@@ -13,17 +13,14 @@ class Task < ApplicationRecord
 
   # enums
   enum status: {
-    enqueued: 'enqueued',
-    processing: 'processing',
-    succeeded: 'succeeded',
-    failed: 'failed',
-    canceled: 'canceled'
-  }
+         enqueued: "enqueued",
+         processing: "processing",
+         succeeded: "succeeded",
+         failed: "failed",
+         canceled: "canceled"
+       }
 
-  enum task_type: {
-    feed_store: 'feedStore',
-    feed_update: 'feedUpdate'
-  }
+  enum task_type: { feed_store: "feedStore", feed_update: "feedUpdate" }
 
   # callbacks
   after_update :set_finished_at, if: :saved_change_to_status?

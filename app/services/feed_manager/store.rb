@@ -15,9 +15,7 @@ module FeedManager
     private
 
     def store_feed
-      entries.each do |entry|
-        ItemManager::Create.new(feed:, entry:).call
-      end
+      entries.each { |entry| ItemManager::Create.new(feed:, entry:).call }
 
       feed
     end

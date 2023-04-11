@@ -4,8 +4,15 @@ class Token < ApplicationRecord
   has_secure_token :key, length: 36
 
   # scopes
-  scope :active, -> { where(active: true).where('expires_at IS NULL OR expires_at >= ?', Time.current) }
-  scope :expired, -> { where.not(expires_at: nil).where('expires_at < ?', Time.current) }
+  scope :active,
+        -> {
+          where(active: true).where(
+            "expires_at IS NULL OR expires_at >= ?",
+            Time.current
+          )
+        }
+  scope :expired,
+        -> { where.not(expires_at: nil).where("expires_at < ?", Time.current) }
   scope :permanent, -> { where(expires_at: nil) }
 
   # callbacks

@@ -10,9 +10,7 @@ class ExportsController < ApplicationController
       format.csv do
         send_data csv, filename: "items-#{Time.zone.now.to_date}.csv"
       end
-      format.json do
-        render json: items
-      end
+      format.json { render json: items }
     end
   end
 
@@ -23,11 +21,7 @@ class ExportsController < ApplicationController
   end
 
   def options
-    {
-      limit: 1000,
-      offset: 0,
-      sort: ['published_at:desc']
-    }
+    { limit: 1000, offset: 0, sort: ["published_at:desc"] }
   end
 
   def csv
@@ -36,9 +30,7 @@ class ExportsController < ApplicationController
     CSV.generate(headers: true) do |csv|
       csv << attributes
 
-      items.each do |item|
-        csv << attributes.map { |attr| item.send(attr) }
-      end
+      items.each { |item| csv << attributes.map { |attr| item.send(attr) } }
     end
   end
 end

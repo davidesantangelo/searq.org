@@ -28,7 +28,7 @@ module FeedManager
         when 200
           response.body
         when 301, 302
-          HTTParty.get(response.headers['location']).response.body
+          HTTParty.get(response.headers["location"]).response.body
         when 403
           RestClient.get(feed_url).body
         else
@@ -38,7 +38,7 @@ module FeedManager
     end
 
     def feed_url
-      url.gsub('feed://', '').gsub('feed:', '').squish
+      url.gsub("feed://", "").gsub("feed:", "").squish
     end
   end
 end

@@ -5,6 +5,9 @@ class Item < ApplicationRecord
   include MeiliSearch::Rails
   extend Pagy::Meilisearch
 
+  # callbacks
+  after_create :enrich
+
   # associations
   belongs_to :feed, counter_cache: true
 
@@ -18,21 +21,32 @@ class Item < ApplicationRecord
 
   # search
   meilisearch do
-    attribute :title, :text, :url, :categories, :published_at, :published_at_timestamp, :feed_id
+    attribute :title,
+              :text,
+              :url,
+              :categories,
+              :published_at,
+              :published_at_timestamp,
+              :feed_id
     searchable_attributes %i[title text url categories published_at feed_id]
 
-    filterable_attributes %i[feed_id categories published_at published_at_timestamp]
+    filterable_attributes %i[
+                            feed_id
+                            categories
+                            published_at
+                            published_at_timestamp
+                          ]
     sortable_attributes %i[published_at published_at_timestamp title]
 
-    ranking_rules [
-      'proximity',
-      'typo',
-      'words',
-      'attribute',
-      'sort',
-      'exactness',
-      'publication_year:desc'
-    ]
+    ranking_rules %w[
+                    proximity
+                    typo
+                    words
+                    attribute
+                    sort
+                    exactness
+                    publication_year:desc
+                  ]
 
     attribute :feed_title do
       feed.title
@@ -49,9 +63,7 @@ class Item < ApplicationRecord
     CSV.generate(headers: true) do |csv|
       csv << attributes
 
-      all.each do |item|
-        csv << attributes.map { |attr| item.send(attr) }
-      end
+      all.each { |item| csv << attributes.map { |attr| item.send(attr) } }
     end
   end
 
@@ -69,5 +81,9 @@ class Item < ApplicationRecord
 
   def published_at_timestamp
     published_at.to_i
+  end
+
+  def enrich
+    ItemManager::Enrich.new(item: self).call
   end
 end

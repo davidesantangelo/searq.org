@@ -24,7 +24,7 @@ module ItemManager
     end
 
     def title
-      entry.title.presence || 'untitled'
+      entry.title.presence || "untitled"
     end
 
     def parse_item

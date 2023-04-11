@@ -5,12 +5,8 @@ class FlowsController < ApplicationController
 
   def show
     respond_to do |format|
-      format.html do
-        render :show
-      end
-      format.json do
-        render json: @flow.items
-      end
+      format.html { render :show }
+      format.json { render json: @flow.items }
     end
   end
 
@@ -18,10 +14,10 @@ class FlowsController < ApplicationController
     @flow = Flow.new(flow_params)
 
     if @flow.save
-      flash[:notice] = 'Flow was successfully created.'
+      flash[:notice] = "Flow was successfully created."
       redirect_to @flow
     else
-      flash[:error] = 'Flow could not be created.'
+      flash[:error] = "Flow could not be created."
       render :index, status: :unprocessable_entity
     end
   end

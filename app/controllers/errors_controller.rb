@@ -4,12 +4,12 @@ class ErrorsController < ApplicationController
   layout 'error'
 
   def show
-    render status_code.to_s, status: status_code
+    render code, status: code
   end
 
   protected
 
-  def status_code
+  def code
     params[:code] || 500
   end
 end

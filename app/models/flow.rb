@@ -11,10 +11,6 @@ class Flow < ApplicationRecord
   private
 
   def options
-    {
-      limit: 1000,
-      offset: 0,
-      sort: ['published_at:desc']
-    }
+    { limit: 1000, offset: 0, sort: ["published_at:desc"] }
   end
 end

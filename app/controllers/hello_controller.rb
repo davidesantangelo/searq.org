@@ -4,11 +4,9 @@ class HelloController < ApplicationController
   def index
     @token = cookies[:token].presence || generate_token
     @url = "#{request.base_url}/api"
-    @q = %w[
-      ruby
-      rails
-    ].sample
-    @code = "curl -G -H \"Authorization: Token #{@token}\" #{@url}/search.json -d \"q=#{@q}\""
+    @q = %w[ruby rails].sample
+    @code =
+      "curl -G -H \"Authorization: Token #{@token}\" #{@url}/search.json -d \"q=#{@q}\""
   end
 
   def download
