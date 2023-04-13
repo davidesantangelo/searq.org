@@ -5,9 +5,6 @@ class Item < ApplicationRecord
   include MeiliSearch::Rails
   extend Pagy::Meilisearch
 
-  # callbacks
-  after_commit :enrich, on: :create
-
   # associations
   belongs_to :feed, counter_cache: true
 
@@ -18,6 +15,9 @@ class Item < ApplicationRecord
 
   # scopes
   scope :latest, -> { order(published_at: :desc) }
+  scope :oldest, -> { order(published_at: :asc) }
+  scope :enriched, -> { where.not(enriched_at: nil) }
+  scope :not_enriched, -> { where(enriched_at: nil) }
 
   # search
   meilisearch do

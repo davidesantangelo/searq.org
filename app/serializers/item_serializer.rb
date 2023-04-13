@@ -8,6 +8,8 @@ class ItemSerializer
              :published_at,
              :published_at_timestamp,
              :categories,
+             :sentiment,
+             :enriched_at,
              :feed
   belongs_to :feed
 

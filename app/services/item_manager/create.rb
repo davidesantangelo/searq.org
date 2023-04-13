@@ -11,6 +11,7 @@ module ItemManager
 
     def call
       create_item
+      enrich_item
     end
 
     private
@@ -23,6 +24,10 @@ module ItemManager
       return nil if item.nil?
 
       item.save!
+    end
+
+    def enrich_item
+      Enrich.new(item:).call
     end
   end
 end

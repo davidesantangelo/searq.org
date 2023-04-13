@@ -9,8 +9,8 @@ module ItemManager
     attr_reader :item
 
     def call
-      return if item.text.blank?
       return if item.enriched_at.present?
+      return if item.text.blank?
 
       item.update(sentiment: sentiment, enriched_at: Time.current)
 
