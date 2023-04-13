@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   extend Pagy::Meilisearch
 
   # callbacks
-  after_create :enrich
+  after_commit :enrich, on: :create
 
   # associations
   belongs_to :feed, counter_cache: true
