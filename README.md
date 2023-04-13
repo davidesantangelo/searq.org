@@ -51,7 +51,7 @@ If you enclose search terms in double quotes ("), SearQ will only return documen
 
 Phrase searches are case-insensitive and ignore soft separators such as -, ,, and :. Using a hard separator within a phrase search effectively splits it into multiple separate phrase searches: "Octavia.Butler" will return the same results as "Octavia" "Butler".
 
-You can combine phrase search and normal queries in a single search request. 
+You can combine phrase search and normal queries in a single search request.
 
 ## Relevancy
 
@@ -67,7 +67,7 @@ You can export the current CSV list of feeds used as sources directly from [here
 
 Here are all the calls you can make to the API. Enjoy!
 
-https://github.com/searq/searq.org/blob/main/EXAMPLES.md
+https://github.com/davidesantangelo/searq.org/blob/main/EXAMPLES.md
 
 ## Export
 
@@ -117,7 +117,7 @@ You have the option to install Meilisearch locally or deploy it over a cloud ser
 - [JSON:API Serialization](https://github.com/jsonapi-serializer/jsonapi-serializer) &mdash; A fast JSON:API serializer for Ruby Objects..
 - [TailwindCSS](https://github.com/tailwindlabs/tailwindcss) &mdash; A utility-first CSS framework for rapidly building custom user interfaces.
 
-Plus *lots* of Ruby Gems, a complete list of which is at [/main/Gemfile](https://github.com/searq/searq.org/blob/main/Gemfile).
+Plus *lots* of Ruby Gems, a complete list of which is at [/main/Gemfile](https://github.com/davidesantangelo/searq.org/blob/main/Gemfile).
 
 ## Sponsor me
 
@@ -141,7 +141,7 @@ Sincerely, Davide
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at <https://github.com/searq/searq.org>. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at <https://github.com/davidesantangelo/searq.org>. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 

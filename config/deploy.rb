@@ -1,16 +1,23 @@
 # frozen_string_literal: true
 
 # config valid for current version and patch releases of Capistrano
-lock '~> 3.17.2'
+lock "~> 3.17.2"
 
-set :application, 'searq'
-set :repo_url, 'git@github.com:searq/searq.org.git'
+set :application, "searq"
+set :repo_url, "git@github.com:davidesantangelo/searq.org.git"
 
 # Deploy to the user's home directory
 set :deploy_to, "/home/deploy/#{fetch :application}"
 
-append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system',
-       'public/uploads'
+append :linked_dirs,
+       "log",
+       "tmp/pids",
+       "tmp/cache",
+       "tmp/sockets",
+       "vendor/bundle",
+       ".bundle",
+       "public/system",
+       "public/uploads"
 
 # Only keep the last 5 releases to save disk space
 set :keep_releases, 5
