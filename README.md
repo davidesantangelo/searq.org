@@ -30,7 +30,11 @@ curl -G -H "Authorization: Token {TOKEN}" https://searq.org/api/search.json -d "
           "region|us",
           "language|en-us",
           "author_name|andrew tarantola"
-        ]
+        ],
+        "sentiment": {
+          "type": "neutral",
+          "score": 0
+        },
       },
       "relationships": {
         "feed": {
