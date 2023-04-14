@@ -83,7 +83,7 @@ class Item < ApplicationRecord
     published_at.to_i
   end
 
-  def enrich
+  def enrich!
     ItemManager::Enrich.new(item: self).call
   end
 end
