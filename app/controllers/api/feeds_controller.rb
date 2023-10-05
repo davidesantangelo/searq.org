@@ -53,7 +53,7 @@ module Api
 
     def options
       {
-        limit: 1000
+        limit: 500
       }
     end
 

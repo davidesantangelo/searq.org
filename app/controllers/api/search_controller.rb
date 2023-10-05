@@ -16,7 +16,7 @@ module Api
       params.permit(:q, :sort, :direction, :limit, :offset).with_defaults(
         sort: 'published_at',
         direction: 'desc',
-        limit: 1000,
+        limit: 500,
         offset: 0
       )
     end
