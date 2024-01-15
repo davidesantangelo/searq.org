@@ -11,7 +11,7 @@ The engine works by aggregating information from multiple RSS feeds, indexing th
 By utilizing RSS feeds, the search results are often more targeted and accurate, making it easier for users to find the information they are looking for. Additionally, because the information is being pulled from a variety of sources, users may also be exposed to a wider range of perspectives and opinions on a given topic.
 
 ```sh
-curl -G -H "Authorization: Token {TOKEN}" https://searq.org/api/search.json -d "q={q}"
+curl -G -H "Authorization: Token {TOKEN}" https://<URL>/api/search.json -d "q={q}"
 ```
 
 ```json
@@ -65,7 +65,7 @@ In order to ensure relevant results, search responses are sorted based on a set 
 
 ## Feeds
 
-You can export the current CSV list of feeds used as sources directly from [here](https://searq.org/hello/download?format=csv)
+You can export the current CSV list of feeds used as sources directly from [here](https://<URL>/hello/download?format=csv)
 
 ## Examples
 
@@ -77,7 +77,7 @@ https://github.com/davidesantangelo/searq.org/blob/main/EXAMPLES.md
 
 With SearQ you can export your own query as clean CSV file.
 
-https://searq.org/exports
+https://<URL>/exports
 
 ## Mielesearch
 
